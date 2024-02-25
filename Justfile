@@ -14,5 +14,15 @@ templates TEMPLATE:
 	code {{HOME}}/mr-github/templates/{{TEMPLATE}}	
 
 # Degits a given template to OUTPUT_DIR
-scaffold TEMPLATE OUTPUT_DIR:
-  degit moveread/{{TEMPLATE}} {{OUTPUT_DIR}}
+scaffold TEMPLATE +PARAMS:
+  degit moveread/{{TEMPLATE}} {{PARAMS}}
+
+# Degits and installs the vite playground template
+playground OUTPUT='playground':
+  degit moveread/vite-playground-template {{OUTPUT}}
+  cd {{OUTPUT}} && yarn
+
+# Degits and installs the vite empty template
+devapp OUTPUT='devapp':
+  degit moveread/vite-react-ts-template {{OUTPUT}}
+  cd {{OUTPUT}} && yarn
