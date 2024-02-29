@@ -36,3 +36,7 @@ devapp OUTPUT='devapp':
 # Open lite-mode
 lite-mode:
   code /home/m4rs/mr-github/frontend/lite-mode
+
+# Generates a GitHub workflow file to deploy to GitHub pages
+workflow FOLDER:
+  @bash -c '{{CIT}}/workflow.sh {{FOLDER}}'
