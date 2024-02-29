@@ -16,3 +16,8 @@ fi
 mkdir -p $(dirname $OUTPUT)
 sed "s/{{DIRECTORY}}/${FOLDER}/g" $TEMPLATE > $OUTPUT
 echo "$OUTPUT" workflow file created successfully!
+echo "Adding 'deploy-$FOLDER' rule to $BASE/Justfile"
+echo "" >> $BASE/Justfile
+echo "# Deploy '$FOLDER' into GitHub Pages" >> $BASE/Justfile
+echo "deploy-$FOLDER:" >> $BASE/Justfile
+echo "  gh workflow run deploy-$FOLDER.yml --ref main" >> $BASE/Justfile
