@@ -37,6 +37,14 @@ devapp OUTPUT='devapp':
 lite-mode:
   code /home/m4rs/mr-github/frontend/lite-mode
 
+# Open user-mode
+user-mode:
+  code /home/m4rs/mr-github/lib/js/clients/user-mode/
+
 # Generates a GitHub workflow file to deploy to GitHub pages
 workflow FOLDER:
   @bash -c '{{CIT}}/workflow.sh {{FOLDER}}'
+
+# Link the basic Moveread images
+images DEST='.':
+  ln -s {{CIT}}/images {{DEST}}

@@ -6,7 +6,7 @@ _cit_autocomplete() {
   # Example logic for autocompletion - adjust as needed
   if [[ -v cit_completions[$prev] ]]; then
     local dir="${cit_completions[$prev]}"
-    COMPREPLY=( $(compgen -W "$(bash $HERE/completions/cit-completion.sh "$dir")" -- ${cur}) )
+    COMPREPLY=( $(compgen -W "$(bash $HERE/completions/cit-completion.sh $dir)" -- ${cur}) )
     return 0
   fi
   # Default to justfile targets for other cases
