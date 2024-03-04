@@ -1,6 +1,9 @@
 HOME := "/home/m4rs"
 CIT := HOME + "/cit"
 JUSTFILE := CIT + "/Justfile"
+UTIL := CIT + "/util"
+DEGIT := UTIL + "/good-degit.sh"
+
 # Show this list
 default:
   @just --justfile {{JUSTFILE}} --list
@@ -15,20 +18,20 @@ templates TEMPLATE:
 
 # Degits a given template to OUTPUT_DIR
 scaffold TEMPLATE OUTPUT *PARAMS:
-  degit moveread/{{TEMPLATE}} {{PARAMS}} {{OUTPUT}} && \
+  {{DEGIT}} moveread/{{TEMPLATE}} {{PARAMS}} {{OUTPUT}} && \
   cd {{OUTPUT}} && \
   json -I -f package.json -e 'this.name = "{{OUTPUT}}"'
 
 # Degits and installs the vite playground template
 playground OUTPUT='playground':
-  degit moveread/vite-playground-template {{OUTPUT}} && \
+  {{DEGIT}} moveread/vite-playground-template {{OUTPUT}}
   cd {{OUTPUT}} && \
   json -I -f package.json -e 'this.name = "{{OUTPUT}}"' && \
   yarn
 
 # Degits and installs the vite empty template
-devapp OUTPUT='devapp':
-  degit moveread/vite-react-ts-template {{OUTPUT}} && \
+vite OUTPUT='devapp':
+  {{DEGIT}} moveread/vite-react-ts-template {{OUTPUT}}
   cd {{OUTPUT}} && \
   json -I -f package.json -e 'this.name = "{{OUTPUT}}"' && \
   yarn
