@@ -45,9 +45,13 @@ user-mode:
   code /home/m4rs/mr-github/lib/js/clients/user-mode/
 
 # Generates a GitHub workflow file to deploy to GitHub pages
-workflow FOLDER:
+workflow FOLDER='':
   @bash -c '{{CIT}}/workflow.sh {{FOLDER}}'
 
 # Link the basic Moveread images
 images DEST='.':
   ln -s {{CIT}}/images {{DEST}}
+
+# Install chakra UI
+chakra:
+  yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
