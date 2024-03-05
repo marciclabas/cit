@@ -55,3 +55,11 @@ images DEST='.':
 # Install chakra UI
 chakra:
   yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
+
+# Install and set-up capacitor
+cap:
+  [ ! -f package.json ] && (echo "package.json not found"; exit 1) || :
+  yarn add @capacitor/core @capacitor/android --dev @capacitor/cli --dev dotenv --dev fs
+  echo "# Rules added by 'cit cap'" >> Justfile
+  cat {{CIT}}/templates/capacitor.just >> Justfile
+  @bash -c 'just setup'
