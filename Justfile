@@ -40,9 +40,25 @@ vite OUTPUT='devapp':
 lite-mode:
   code /home/m4rs/mr-github/frontend/lite-mode
 
+# Open scoresheet-models
+scoresheet-models:
+  code /home/m4rs/mr-github/lib/js/cv/scoresheet-models/
+
+# Open use-grid-selector:
+grid-selector:
+  code /home/m4rs/mr-github/lib/js/ui/use-grid-selector
+
+# Open opencv-tools
+opencv-tools:
+  code /home/m4rs/mr-github/lib/js/cv/opencv-tools
+
 # Open user-mode
 user-mode:
   code /home/m4rs/mr-github/lib/js/clients/user-mode/
+
+# Copy vectors.ts
+vecjs DEST='.':
+  cp {{CIT}}/templates/vectors.ts {{DEST}}
 
 # Generates a GitHub workflow file to deploy to GitHub pages
 workflow FOLDER='':
