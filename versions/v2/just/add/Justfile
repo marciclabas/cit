@@ -1,0 +1,10 @@
+help:
+  @just --list
+
+# Link the Moveread images
+images DEST='.':
+  ln -s $CIT_BASE/resources/images {{invocation_directory()}}/{{DEST}}
+
+# Copy the Moveread images
+images-cp DEST='.':
+  cp -r $CIT_BASE/resources/images {{invocation_directory()}}/{{DEST}}

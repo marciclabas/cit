@@ -4,7 +4,7 @@ help:
   @just --list
 
 # Scaffold a python package
-python NAME='package_name' DESCRIPTION='package_description':
+python NAME DESCRIPTION='package_description':
   cp -r {{TEMPLATES}}/python-pkg {{invocation_directory()}}/{{NAME}}
   cd {{invocation_directory()}}/{{NAME}} && \
   sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' pyproject.toml && \
@@ -12,11 +12,12 @@ python NAME='package_name' DESCRIPTION='package_description':
   mv src/NAME src/{{snakecase(file_name(NAME))}}
 
 # Scaffold a typescript node package
-typescript NAME='package_name' DESCRIPTION='package_description':
+typescript NAME DESCRIPTION='package_description':
   cp -r {{TEMPLATES}}/ts-pkg {{invocation_directory()}}/{{NAME}}
   cd {{invocation_directory()}}/{{NAME}} && \
   sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' package.json && \
-  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' README.md
+  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' README.md && \
+  yarn
 
 # Scaffold a react x vite app
 react NAME='app_name' DESCRIPTION='app_description':
