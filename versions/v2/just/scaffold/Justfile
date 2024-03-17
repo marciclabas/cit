@@ -9,6 +9,7 @@ python NAME DESCRIPTION='package_description':
   cd {{invocation_directory()}}/{{NAME}} && \
   sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' pyproject.toml && \
   sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' README.md && \
+  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' src/NAME/__init__.py && \
   mv src/NAME src/{{snakecase(file_name(NAME))}}
 
 # Scaffold a typescript node package
