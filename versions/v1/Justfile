@@ -36,26 +36,6 @@ vite OUTPUT='devapp':
   json -I -f package.json -e 'this.name = "{{OUTPUT}}"' && \
   yarn
 
-# Open lite-mode
-lite-mode:
-  code /home/m4rs/mr-github/frontend/lite-mode
-
-# Open scoresheet-models
-scoresheet-models:
-  code /home/m4rs/mr-github/lib/js/cv/scoresheet-models/
-
-# Open use-grid-selector:
-grid-selector:
-  code /home/m4rs/mr-github/lib/js/ui/use-grid-selector
-
-# Open opencv-tools
-opencv-tools:
-  code /home/m4rs/mr-github/lib/js/cv/opencv-tools
-
-# Open user-mode
-user-mode:
-  code /home/m4rs/mr-github/lib/js/clients/user-mode/
-
 # Copy vectors.ts
 vecjs DEST='.':
   cp {{CIT}}/templates/vectors.ts {{DEST}}
@@ -79,3 +59,17 @@ cap:
   echo "# Rules added by 'cit cap'" >> Justfile
   cat {{CIT}}/templates/capacitor.just >> Justfile
   @bash -c 'just setup'
+
+# Create python venv
+env HERE='.venv':
+  python3.11 -m venv {{HERE}}
+
+
+# Run the OCR model on localhost:8501
+ocr:
+  docker run -d -p 8501:8501 --name ocr moveread/tfx-ocr:0.0.0
+
+# Kill the OCR docker container
+ocr-kill:
+  docker kill ocr
+  docker rm ocr

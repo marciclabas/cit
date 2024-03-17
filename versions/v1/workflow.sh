@@ -8,7 +8,6 @@ FOLDER=${1:-.}
 if [ -z $1 ]; then
   ACTION="deploy"
 else
-  echo Not empty!?
   ACTION="deploy-$FOLDER"
 fi
 
