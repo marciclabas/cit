@@ -6,3 +6,5 @@ cit:
   @ echo Opening $CIT_BASE
   code $CIT_BASE
 
+moveread-ocr:
+  code /home/m4rs/mr-github/rnd/ml/moveread-ocr/

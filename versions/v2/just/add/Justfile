@@ -16,10 +16,14 @@ python HERE='.':
     [ ! -f settings.json ] && echo "{}" > settings.json || : && \
     jq '. + {"python.defaultInterpreterPath": ".venv/bin/python"}' settings.json > temp.json && mv temp.json settings.json
 
-  cp -a $CIT_BASE/resources/python-settings/. {{invocation_directory()}}/{{HERE}}/.vscode
+  cp -a $CIT_BASE/resources/python/settings/. {{invocation_directory()}}/{{HERE}}/.vscode
+  cat $CIT_BASE/resources/python/Justfile >> {{invocation_directory()}}/{{HERE}}/Justfile
+  cat $CIT_BASE/resources/python/.gitignore >> {{invocation_directory()}}/{{HERE}}/.gitignore
 
   cd {{invocation_directory()}}/{{HERE}} && \
   touch requirements.txt && \
   python3.11 -m venv .venv && \
   .venv/bin/python -m pip install --upgrade pip && \
   .venv/bin/python -m pip install -r requirements.txt
+  
+  
