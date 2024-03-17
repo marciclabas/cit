@@ -3,8 +3,9 @@ TEMPLATES := "$CIT_BASE" + "/resources/templates"
 help:
   @just --list
 
-[no-cd]
 python NAME='package_name' DESCRIPTION='package_description':
-  cp -r {{TEMPLATES}}/python-pkg {{NAME}}
-  cd {{NAME}} && bash -c "sed -i 's/<NAME>/$(basename {{NAME}})/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' pyproject.toml" && \
-  bash -c "mv src/NAME src/$(echo {{NAME}} | sed 's/-/_/g')"
+  cp -r {{TEMPLATES}}/python-pkg {{invocation_directory()}}/{{NAME}}
+  cd {{invocation_directory()}}/{{NAME}} && sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' pyproject.toml && \
+  mv src/NAME src/{{snakecase(file_name(NAME))}}
+
+typescript:

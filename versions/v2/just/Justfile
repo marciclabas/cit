@@ -5,6 +5,3 @@ mod run
 
 help:
   @just --list
-
-pwd:
-  echo $(pwd)
