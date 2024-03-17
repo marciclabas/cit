@@ -1,0 +1,15 @@
+help:
+  @just --list
+
+# Run the OCR model tfserving on localhost:8501
+ocr:
+  docker run -d -p 8501:8501 --name ocr moveread/tfx-ocr:0.0.0
+
+# Kill the OCR docker container
+ocr-kill:
+  docker kill ocr
+  docker rm ocr
+
+# Open localhost:5173
+dev:
+  powershell.exe /c start firefox localhost:5173

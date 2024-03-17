@@ -1,0 +1,8 @@
+help:
+  @just --list --justfile open.just
+
+# Open cit
+cit:
+  @ echo Opening $CIT_BASE
+  code $CIT_BASE
+
