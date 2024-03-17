@@ -3,9 +3,17 @@ TEMPLATES := "$CIT_BASE" + "/resources/templates"
 help:
   @just --list
 
+# Scaffold a python package
 python NAME='package_name' DESCRIPTION='package_description':
   cp -r {{TEMPLATES}}/python-pkg {{invocation_directory()}}/{{NAME}}
-  cd {{invocation_directory()}}/{{NAME}} && sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' pyproject.toml && \
+  cd {{invocation_directory()}}/{{NAME}} && \
+  sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' pyproject.toml && \
+  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' README.md && \
   mv src/NAME src/{{snakecase(file_name(NAME))}}
 
-typescript:
+# Scaffold a typescript node package
+typescript NAME='package_name' DESCRIPTION='package_description':
+  cp -r {{TEMPLATES}}/ts-pkg {{invocation_directory()}}/{{NAME}}
+  cd {{invocation_directory()}}/{{NAME}} && \
+  sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' package.json && \
+  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' README.md
