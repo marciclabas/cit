@@ -9,7 +9,3 @@ ocr:
 ocr-kill:
   docker kill ocr
   docker rm ocr
-
-# Open localhost:5173
-dev:
-  powershell.exe /c start firefox localhost:5173

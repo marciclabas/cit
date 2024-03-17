@@ -1,0 +1,18 @@
+dev:
+  powershell.exe /c start firefox localhost:5173
+  yarn dev --host
+
+build:
+  yarn run build
+
+preview:
+  powershell.exe /c start firefox localhost:4173
+  yarn preview --host
+
+build-preview: build preview
+
+install-chakra:
+  yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
+
+install-ramda:
+  yarn add ramda --dev @types/ramda
