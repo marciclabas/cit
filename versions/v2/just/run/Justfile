@@ -7,5 +7,4 @@ ocr:
 
 # Kill the OCR docker container
 ocr-kill:
-  docker kill ocr
-  docker rm ocr
+  docker rm -f ocr

@@ -8,3 +8,9 @@ cit:
 
 moveread-ocr:
   code /home/m4rs/mr-github/rnd/ml/moveread-ocr/
+
+haskellian:
+  code /home/m4rs/mr-github/lib/python/tools/haskellian/
+
+lite-mode:
+  code /home/m4rs/mr-github/modes/lite/lite-mode/
