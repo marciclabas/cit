@@ -3,8 +3,11 @@ help:
 
 # Run the OCR model tfserving on localhost:8501
 ocr:
-  docker run -d -p 8501:8501 --name ocr moveread/tfx-ocr:0.0.0
+  docker run -d -p 8501:8501 --name ocr moveread/tfx-ocr:0.0.1
 
 # Kill the OCR docker container
 ocr-kill:
   docker rm -f ocr
+
+predict-fastapi: ocr-kill ocr
+  cd /home/m4rs/mr-github/rnd/ops/composed-predict/ && just server dev

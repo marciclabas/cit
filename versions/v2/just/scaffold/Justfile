@@ -27,3 +27,11 @@ react NAME='app_name' DESCRIPTION='app_description':
   sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' package.json && \
   sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' index.html && \
   yarn
+
+# Scaffold a react x vite playground app
+playground NAME='playground':
+  cp -r {{TEMPLATES}}/react-vite-playground {{invocation_directory()}}/{{NAME}}
+  cd {{invocation_directory()}}/{{NAME}} && \
+  sed -i 's/<NAME>/{{file_name(NAME)}}/g' package.json && \
+  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g' index.html && \
+  yarn

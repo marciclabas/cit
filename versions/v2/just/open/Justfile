@@ -1,3 +1,8 @@
+WORKSPACES := `echo $CIT_BASE` + "/resources/workspaces"
+
+test:
+  echo {{WORKSPACES}}
+
 help:
   @just --list --justfile open.just
 
@@ -12,5 +17,14 @@ moveread-ocr:
 haskellian:
   code /home/m4rs/mr-github/lib/python/tools/haskellian/
 
+haskellianjs:
+  code /home/m4rs/mr-github/lib/js/util/haskellian-js/
+
 lite-mode:
-  code /home/m4rs/mr-github/modes/lite/lite-mode/
+  code {{WORKSPACES}}/lite-mode.code-workspace
+
+predict-backend:
+  code /home/m4rs/mr-github/rnd/ops/composed-predict/
+
+tson-patch:
+  code /home/m4rs/mr-github/lib/js/util/tson-patch/

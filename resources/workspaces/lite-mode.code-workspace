@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../mr-github/modes/lite/lite-mode/app/src"
+		},
+		{
+			"path": "../../../mr-github/modes/lite/lite-mode"
+		},
+		{
+			"path": "../../../mr-github/rnd/ops/composed-predict/predict-client"
+		}
+	],
+	"settings": {
+		"python.languageServer": "None"
+	}
+}
