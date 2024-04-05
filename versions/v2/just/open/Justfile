@@ -28,3 +28,12 @@ predict-backend:
 
 tson-patch:
   code /home/m4rs/mr-github/lib/js/util/tson-patch/
+
+chess-utils:
+  code /home/m4rs/mr-github/lib/both/chess-utils
+
+framer-animations:
+  code /home/m4rs/mr-github/lib/js/ui/framer-animations/
+
+core:
+  code /home/m4rs/mr-github/rnd/data/data-management/.vscode/data-management.code-workspace

@@ -20,6 +20,14 @@ typescript NAME DESCRIPTION='package_description':
   sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' README.md && \
   yarn
 
+# Scaffold a typescript node package
+node18-typescript NAME DESCRIPTION='package_description':
+  cp -r {{TEMPLATES}}/node18-ts {{invocation_directory()}}/{{NAME}}
+  cd {{invocation_directory()}}/{{NAME}} && \
+  sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' package.json && \
+  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' README.md && \
+  yarn
+
 # Scaffold a react x vite app
 react NAME='app_name' DESCRIPTION='app_description':
   cp -r {{TEMPLATES}}/react-vite {{invocation_directory()}}/{{NAME}}

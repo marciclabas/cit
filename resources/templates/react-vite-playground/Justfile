@@ -17,13 +17,14 @@ install-ramda:
 # Create a new page
 add PAGE:
   #!/bin/bash
+  mkdir src/pages/{{titlecase(PAGE)}} || (echo "{{titlecase(PAGE)}} already exists" && exit 0)
+  
   LAST_IMPORT=$(grep -n '^import' src/App.tsx | tail -1 | cut -d : -f 1)
   sed -i "$((LAST_IMPORT+1)) i import {{titlecase(PAGE)}} from './pages/{{titlecase(PAGE)}}'" src/App.tsx | head
 
   PAGES=$(grep -n 'PLAYGROUND_PAGES' src/App.tsx | head -1 | cut -d : -f 1)
   sed -i "$((PAGES+1)) i\  {{lowercase(PAGE)}}: <{{titlecase(PAGE)}} />," src/App.tsx | head
 
-  mkdir src/pages/{{titlecase(PAGE)}} || :
   echo "export function {{titlecase(PAGE)}}() {" > src/pages/{{titlecase(PAGE)}}/{{titlecase(PAGE)}}.tsx
   echo -e "  return (\n    <></>\n  )\n}\nexport default {{titlecase(PAGE)}}" >> src/pages/{{titlecase(PAGE)}}/{{titlecase(PAGE)}}.tsx
 

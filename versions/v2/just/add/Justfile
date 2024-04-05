@@ -21,7 +21,8 @@ python HERE='.':
   cat $CIT_BASE/resources/python/.gitignore >> {{invocation_directory()}}/{{HERE}}/.gitignore
 
   cd {{invocation_directory()}}/{{HERE}} && \
-  touch requirements.txt && \
+  echo "build" >> requirements.txt && \
+  echo "twine" >> requirements.txt && \
   python3.11 -m venv .venv && \
   .venv/bin/python -m pip install --upgrade pip && \
   .venv/bin/python -m pip install -r requirements.txt

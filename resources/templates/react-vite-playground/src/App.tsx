@@ -1,10 +1,7 @@
 import { Button, VStack } from "@chakra-ui/react"
-import Example from "./pages/Example"
 import { RouteObject, useNavigate, useRoutes } from "react-router-dom";
 
 const PLAYGROUND_PAGES: Record<string, JSX.Element> = {
-  example: <Example />,
-  other: <Example />
 }
 
 function Menu() {

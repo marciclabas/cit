@@ -7,7 +7,7 @@
 			"path": "../../../mr-github/modes/lite/lite-mode"
 		},
 		{
-			"path": "../../../mr-github/rnd/ops/composed-predict/predict-client"
+			"path": "../../../mr-github/modes/lite/lite-mode/dev/correction-ui"
 		}
 	],
 	"settings": {
