@@ -35,5 +35,17 @@ chess-utils:
 framer-animations:
   code /home/m4rs/mr-github/lib/js/ui/framer-animations/
 
+queues:
+  code /home/m4rs/mr-github/lib/python/tools/python-q/
+
 core:
-  code /home/m4rs/mr-github/rnd/data/data-management/.vscode/data-management.code-workspace
+  code /home/m4rs/mr-github/rnd/data/python-core
+
+pipelines:
+  code /home/m4rs/mr-github/rnd/data/moveread-pipelines
+
+storage:
+  code /home/m4rs/mr-github/lib/python/tools/python-storage
+
+dfy:
+  code /home/m4rs/mr-github/modes/dfy/moveread-dfy

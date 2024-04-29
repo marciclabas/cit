@@ -11,3 +11,7 @@ ocr-kill:
 
 predict-fastapi: ocr-kill ocr
   cd /home/m4rs/mr-github/rnd/ops/composed-predict/ && just server dev
+
+[no-cd]
+moveread-api PATH:
+  /home/m4rs/mr-github/rnd/data/python-core/.venv/bin/moveread-api --base-path {{PATH}}

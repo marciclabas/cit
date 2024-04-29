@@ -1,6 +1,9 @@
 VENV := ".venv"
 PYTHON := ".venv/bin/python"
 
+help:
+  @just --list
+
 init:
   rm -drf {{VENV}} || :
   python3.11 -m venv {{VENV}}
