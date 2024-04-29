@@ -29,7 +29,7 @@ node18-typescript NAME DESCRIPTION='package_description':
   yarn
 
 # Scaffold a react x vite app
-react NAME='app_name' DESCRIPTION='app_description':
+react NAME='app' DESCRIPTION='app_description':
   cp -r {{TEMPLATES}}/react-vite {{invocation_directory()}}/{{NAME}}
   cd {{invocation_directory()}}/{{NAME}} && \
   sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' package.json && \
@@ -43,3 +43,15 @@ playground NAME='playground':
   sed -i 's/<NAME>/{{file_name(NAME)}}/g' package.json && \
   sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g' index.html && \
   yarn
+
+# Scaffold a react x vite x capacitor app. The app ID is set to "com.moveread.{{NAME}}"
+capacitor NAME APP_NAME:
+  cp -r {{TEMPLATES}}/vite-capacitor-app {{invocation_directory()}}/{{NAME}}
+  cd {{invocation_directory()}}/{{NAME}} && \
+  sed -i 's/<NAME>/{{file_name(NAME)}}/g' package.json && \
+  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g' index.html && \
+  echo 'APP_ID="com.moveread.{{NAME}}"' > .env && \
+  echo 'APP_NAME="{{APP_NAME}}"' >> .env && \
+  echo "PC_LAN_IP=\"`$FIND_LAN_IP`\"" >> .env && \
+  yarn && \
+  just android setup

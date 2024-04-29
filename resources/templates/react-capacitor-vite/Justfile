@@ -1,0 +1,16 @@
+mod android "Justfile.android.just"
+
+dev:
+  yarn dev --host
+
+build:
+  yarn run build
+
+preview:
+  yarn preview --host
+
+build-preview: build preview
+
+install-ramda:
+  yarn add ramda --dev @types/ramda
+

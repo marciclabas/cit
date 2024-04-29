@@ -14,7 +14,8 @@ python HERE='.':
   mkdir {{invocation_directory()}}/{{HERE}}/.vscode || :
   cd {{invocation_directory()}}/{{HERE}}/.vscode && \
     [ ! -f settings.json ] && echo "{}" > settings.json || : && \
-    jq '. + {"python.defaultInterpreterPath": ".venv/bin/python"}' settings.json > temp.json && mv temp.json settings.json
+    jq '. + {"python.defaultInterpreterPath": ".venv/bin/python"}' settings.json > temp.json && mv temp.json settings.json && \
+    jq '. + {"python.analysis.typeCheckingMode": "standard"}' settings.json > temp.json && mv temp.json settings.json
 
   cp -a $CIT_BASE/resources/python/settings/. {{invocation_directory()}}/{{HERE}}/.vscode
   echo "" >> {{invocation_directory()}}/{{HERE}}/Justfile
