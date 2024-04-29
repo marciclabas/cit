@@ -46,7 +46,7 @@ playground NAME='playground':
 
 # Scaffold a react x vite x capacitor app. The app ID is set to "com.moveread.{{NAME}}"
 capacitor NAME APP_NAME:
-  cp -r {{TEMPLATES}}/vite-capacitor-app {{invocation_directory()}}/{{NAME}}
+  cp -r {{TEMPLATES}}/react-capacitor-vite {{invocation_directory()}}/{{NAME}}
   cd {{invocation_directory()}}/{{NAME}} && \
   sed -i 's/<NAME>/{{file_name(NAME)}}/g' package.json && \
   sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g' index.html && \
