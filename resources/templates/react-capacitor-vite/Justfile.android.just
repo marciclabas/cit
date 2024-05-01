@@ -8,6 +8,8 @@ setup:
   yarn run build
   npx cap add android
   just android build
+  just android install-debug
+  just android open
 
 # Build android app
 build:

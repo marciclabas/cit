@@ -1,18 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tsconfigPaths from 'vite-tsconfig-paths'
 // import { visualizer } from 'rollup-plugin-visualizer'
 // import mkcert from 'vite-plugin-mkcert'
 // import viteCompression from 'vite-plugin-compression';
-// import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    tsconfigPaths(),
     // visualizer(), // bundle-size-visualizer
     // mkcert(), // self-signed ssl-certificate, stored in ~/.vite-plugig-mkcert/rootCA.pem
     // viteCompression({ algorithm: 'gzip'}), viteCompression({ algorithm: 'brotliCompress' }), // Azure SWA already does that for you, so no need! (check your provider)
-    // tsconfigPaths(),
   ],
   base: '/', // change if you're deploying to github pages
   resolve: {
