@@ -12,28 +12,13 @@ cit:
   code $CIT_BASE
 
 moveread-ocr:
-  code /home/m4rs/mr-github/rnd/ml/moveread-ocr/
+  code /home/m4rs/mr-github/rnd/moveread-ocr/
 
 haskellian:
-  code /home/m4rs/mr-github/lib/python/tools/haskellian/
+  code /home/m4rs/github/lib/haskellian
 
-haskellianjs:
-  code /home/m4rs/mr-github/lib/js/util/haskellian-js/
-
-lite-mode:
-  code {{WORKSPACES}}/lite-mode.code-workspace
-
-predict-backend:
-  code /home/m4rs/mr-github/rnd/ops/composed-predict/
-
-tson-patch:
-  code /home/m4rs/mr-github/lib/js/util/tson-patch/
-
-chess-utils:
-  code /home/m4rs/mr-github/lib/both/chess-utils
-
-framer-animations:
-  code /home/m4rs/mr-github/lib/js/ui/framer-animations/
+haskellian-js:
+  code /home/m4rs/github/lib/haskellian-js
 
 queues:
   code /home/m4rs/mr-github/lib/python/tools/python-q/
@@ -43,9 +28,6 @@ core:
 
 pipelines:
   code /home/m4rs/mr-github/rnd/data/moveread-pipelines
-
-storage:
-  code /home/m4rs/mr-github/lib/python/tools/python-storage
 
 dfy:
   code /home/m4rs/mr-github/modes/dfy/moveread-dfy

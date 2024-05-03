@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cit-images"
+version = "0.1.0"
+authors = [
+  {name="Marcel Claramunt", email="marcel@moveread.com"}
+]
+description = "Tools to access and predict the CIT images"
+dependencies = [
+  "lazy-loader"
+]
+requires-python = ">=3.10"
+readme = {file="README.md", content-type="text/markdown"}
+
+[project.urls]
+repo = "https://github.com/moveread/REPO.git"
+
+[project.optional-dependencies]
+ocr = ["tf-serving"]

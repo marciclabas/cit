@@ -32,4 +32,6 @@ python HERE='.':
     .venv/bin/python -m pip install -r requirements.txt; \
   fi 
   
-  
+# Add recipe to publish to GitHub pages. Requires activating them on github!
+gh-pages:
+  cat $CIT_BASE/resources/recipes/gh-pages.just >> {{invocation_directory()}}/Justfile
