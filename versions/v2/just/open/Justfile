@@ -29,5 +29,14 @@ core:
 pipelines:
   code /home/m4rs/mr-github/rnd/data/moveread-pipelines
 
+storage:
+  code /home/m4rs/github/python-storage
+
 dfy:
-  code /home/m4rs/mr-github/modes/dfy/moveread-dfy
+  code /home/m4rs/mr-github/modes/moveread-dfy
+
+lite:
+  code /home/m4rs/mr-github/modes/lite-mode
+
+chess:
+  code /home/m4rs/mr-github/lib/chess/

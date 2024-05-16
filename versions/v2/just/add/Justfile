@@ -27,6 +27,7 @@ python HERE='.':
     echo "build" >> requirements.txt && \
     echo "twine" >> requirements.txt && \
     echo "ipykernel" >> requirements.txt && \
+    echo "verify-import" >> requirements.txt && \
     python3.11 -m venv .venv && \
     .venv/bin/python -m pip install --upgrade pip && \
     .venv/bin/python -m pip install -r requirements.txt; \
