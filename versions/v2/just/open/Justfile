@@ -40,3 +40,6 @@ lite:
 
 chess:
   code /home/m4rs/mr-github/lib/chess/
+
+landing:
+  code /home/m4rs/mr-github/modes/moveread-landing

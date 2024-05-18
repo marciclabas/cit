@@ -63,3 +63,15 @@ capacitor NAME APP_NAME:
   echo "PC_LAN_IP=\"`$FIND_LAN_IP`\"" >> .env && \
   yarn && \
   just android setup
+
+# Create Desktop/Mobile<Page> layouts, plus <Page> to switch between them
+layouts PAGE:
+  cp -r {{TEMPLATES}}/layouts {{invocation_directory()}}/{{PAGE}}
+  cd {{invocation_directory()}}/{{PAGE}} && \
+  sed -i 's/Page/{{file_name(PAGE)}}/g' {{invocation_directory()}}/{{PAGE}}/DesktopPage.tsx && \
+  sed -i 's/Page/{{file_name(PAGE)}}/g' {{invocation_directory()}}/{{PAGE}}/MobilePage.tsx && \
+  sed -i 's/Page/{{file_name(PAGE)}}/g' {{invocation_directory()}}/{{PAGE}}/Page.tsx && \
+  sed -i 's/Page/{{file_name(PAGE)}}/g' {{invocation_directory()}}/{{PAGE}}/index.ts && \
+  mv {{invocation_directory()}}/{{PAGE}}/Page.tsx {{invocation_directory()}}/{{PAGE}}/{{PAGE}}.tsx && \
+  mv {{invocation_directory()}}/{{PAGE}}/DesktopPage.tsx {{invocation_directory()}}/{{PAGE}}/Desktop{{PAGE}}.tsx && \
+  mv {{invocation_directory()}}/{{PAGE}}/MobilePage.tsx {{invocation_directory()}}/{{PAGE}}/Mobile{{PAGE}}.tsx
