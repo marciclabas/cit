@@ -13,7 +13,7 @@ build:
   rm -drf build
 
 # Publish `dist/*` to pypi, then delete
-publish:
+publish: build
   cd {{PKG}} && \
   {{PYTHON}} -m twine upload dist/* && \
   rm -drf dist

@@ -32,6 +32,9 @@ pipelines:
 storage:
   code /home/m4rs/github/python-storage
 
+mltools:
+  code /home/m4rs/github/ml/mltools
+
 dfy:
   code /home/m4rs/mr-github/modes/moveread-dfy
 
@@ -43,3 +46,6 @@ chess:
 
 landing:
   code /home/m4rs/mr-github/modes/moveread-landing
+
+transformer:
+  code /home/m4rs/mr-github/rnd/chess-transformer
