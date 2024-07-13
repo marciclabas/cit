@@ -1,6 +1,5 @@
 export CIT_BASE=$(dirname "${BASH_SOURCE[0]}")
 source $CIT_BASE/versions/v2/source.sh
-source $CIT_BASE/just-completions.sh
 
 export BUMP="$CIT_BASE/resources/scripts/bump.sh"
 export FIND_LAN_IP="$CIT_BASE/resources/scripts/find_lan_ip.sh"
