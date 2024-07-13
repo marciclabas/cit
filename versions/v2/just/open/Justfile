@@ -11,23 +11,23 @@ cit:
   @ echo Opening $CIT_BASE
   code $CIT_BASE
 
-moveread-ocr:
-  code /home/m4rs/mr-github/rnd/moveread-ocr/
-
 haskellian:
   code /home/m4rs/github/lib/haskellian
 
 haskellian-js:
   code /home/m4rs/github/lib/haskellian-js
 
-queues:
-  code /home/m4rs/mr-github/lib/python/tools/python-q/
-
 core:
-  code /home/m4rs/mr-github/rnd/data/python-core
+  code /home/m4rs/mr-github/rnd/core
 
-pipelines:
-  code /home/m4rs/mr-github/rnd/data/moveread-pipelines
+pipeline:
+  code /home/m4rs/mr-github/rnd/dfy-pipeline
+
+robust-extraction:
+  code /home/m4rs/mr-github/rnd/robust-extraction
+
+ocr:
+  code /home/m4rs/mr-github/rnd/ocr
 
 storage:
   code /home/m4rs/github/python-storage
@@ -36,16 +36,37 @@ mltools:
   code /home/m4rs/github/ml/mltools
 
 dfy:
-  code /home/m4rs/mr-github/modes/moveread-dfy
+  code /home/m4rs/mr-github/public/dfy
 
-lite:
-  code /home/m4rs/mr-github/modes/lite-mode
+notifications:
+  code /home/m4rs/mr-github/notifications
 
 chess:
   code /home/m4rs/mr-github/lib/chess/
 
 landing:
-  code /home/m4rs/mr-github/modes/moveread-landing
+  code /home/m4rs/mr-github/public/landing
 
 transformer:
   code /home/m4rs/mr-github/rnd/chess-transformer
+
+annotation:
+  code /home/m4rs/mr-github/rnd/annotation
+
+mock:
+  code /home/m4rs/mr-github/mock
+
+scraping:
+  code /home/m4rs/mr-github/lib/scraping
+
+kv:
+  code /home/m4rs/github/kv
+
+# pipeteer:
+#   code /home/m4rs/github/pipeteer
+
+scoresheet-models:
+  code /home/m4rs/mr-github/lib/scoresheet-models/
+
+dashboard:
+  code /home/m4rs/mr-github/dashboard

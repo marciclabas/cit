@@ -30,7 +30,7 @@ node18-typescript NAME DESCRIPTION='package_description':
 
 # Scaffold a react x vite app
 react NAME='app' DESCRIPTION='app_description':
-  cp -r {{TEMPLATES}}/react-vite {{invocation_directory()}}/{{NAME}}
+  cp -r {{TEMPLATES}}/react-vite-pkg {{invocation_directory()}}/{{NAME}}
   cd {{invocation_directory()}}/{{NAME}} && \
   sed -i 's/<NAME>/{{file_name(NAME)}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' package.json && \
   sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g; s/<DESCRIPTION>/{{DESCRIPTION}}/g' index.html && \

@@ -36,3 +36,7 @@ python HERE='.':
 # Add recipe to publish to GitHub pages. Requires activating them on github!
 gh-pages:
   cat $CIT_BASE/resources/recipes/gh-pages.just >> {{invocation_directory()}}/Justfile
+
+# Add Docker recipes
+docker:
+  cat $CIT_BASE/resources/recipes/docker.just >> {{invocation_directory()}}/Justfile

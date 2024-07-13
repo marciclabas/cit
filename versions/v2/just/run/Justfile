@@ -3,7 +3,7 @@ help:
 
 # Run the OCR model tfserving on localhost:8501
 ocr:
-  docker run -d -p 8501:8501 --name ocr moveread/tfx-ocr:0.0.1
+  docker run -d -p 8501:8501 --name ocr moveread/tfx-ocr:latest
 
 # Kill the OCR docker container
 ocr-kill:
@@ -15,3 +15,31 @@ predict-fastapi: ocr-kill ocr
 [no-cd]
 moveread-api PATH:
   /home/m4rs/mr-github/rnd/data/python-core/.venv/bin/moveread-api --base-path {{PATH}}
+
+
+tunnel:
+  sudo echo "Starting cloudflared tunnel..."
+  sudo cloudflared tunnel run moveread-tunnel > /tmp/tunnel.logs 2>&1 &
+
+tunnel-logs:
+  cat /tmp/tunnel.logs
+
+tunnel-kill:
+  sudo pkill -f cloudflared
+
+
+postgres DB="db" USER="user" PASSWD="passwd":
+  docker run --name pg -e POSTGRES_USER={{USER}} -e POSTGRES_PASSWORD={{PASSWD}} -e POSTGRESS_DB={{DB}} -p 5432:5432 -d postgres:latest
+
+postgres-logs:
+  docker logs pg
+
+postgres-kill:
+  docker rm -f pg
+
+
+redis:
+  docker run -d --name redis -p 6379:6379 redis/redis-stack-server:latest
+
+redis-kill:
+  docker rm -f redis
