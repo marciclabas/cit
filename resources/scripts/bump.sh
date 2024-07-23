@@ -16,11 +16,13 @@ bump() {
 }
 
 extract() {
-  echo $(grep "version =" $1 | sed 's/.*"\(.*\)"/\1/')
+  echo $(grep "version.*=" $1 | sed 's/.*"\(.*\)"/\1/')
 }
 
 curr=$(extract $PYPROJECT)
 newver=$(bump $curr)
 sed -i "s/version = \".*\"/version = \"$newver\"/" $PYPROJECT
+sed -i "s/version=\".*\"/version=\"$newver\"/" $PYPROJECT
+sed -i "s/version := \".*\"/version := \"$newver\"/" $PYPROJECT
 
 echo $newver
