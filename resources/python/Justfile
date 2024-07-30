@@ -1,4 +1,5 @@
 VENV := ".venv"
+BIN := ".venv/bin"
 PYTHON := ".venv/bin/python"
 
 help:

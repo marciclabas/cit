@@ -38,6 +38,9 @@ mltools:
 dfy:
   code /home/m4rs/mr-github/public/dfy
 
+players:
+  code /home/m4rs/mr-github/public/players
+
 notifications:
   code /home/m4rs/mr-github/notifications
 

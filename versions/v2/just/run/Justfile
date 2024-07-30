@@ -18,14 +18,14 @@ moveread-api PATH:
 
 
 tunnel:
-  sudo echo "Starting cloudflared tunnel..."
-  sudo cloudflared tunnel run mr-tunnel > /tmp/tunnel.logs 2>&1 &
+  echo "Starting cloudflared tunnel..."
+  cloudflared tunnel run mr-tunnel > /tmp/tunnel.logs 2>&1 &
 
 tunnel-logs:
   cat /tmp/tunnel.logs
 
 tunnel-kill:
-  sudo pkill -f cloudflared
+  pkill -f cloudflared
 
 
 postgres DB="db" USER="user" PASSWD="passwd":
