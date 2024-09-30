@@ -10,10 +10,10 @@ python HERE='.':
     jq '. + {"python.defaultInterpreterPath": ".venv/bin/python"}' settings.json > temp.json && mv temp.json settings.json && \
     jq '. + {"python.analysis.typeCheckingMode": "standard"}' settings.json > temp.json && mv temp.json settings.json
 
-  cp -a $CIT_BASE/resources/python/settings/. {{invocation_directory()}}/{{HERE}}/.vscode
+  cp -a $CIT_HOME/resources/python/settings/. {{invocation_directory()}}/{{HERE}}/.vscode
   echo "" >> {{invocation_directory()}}/{{HERE}}/Justfile
-  cat $CIT_BASE/resources/python/Justfile >> {{invocation_directory()}}/{{HERE}}/Justfile
-  cat $CIT_BASE/resources/python/.gitignore >> {{invocation_directory()}}/{{HERE}}/.gitignore
+  cat $CIT_HOME/resources/python/Justfile >> {{invocation_directory()}}/{{HERE}}/Justfile
+  cat $CIT_HOME/resources/python/.gitignore >> {{invocation_directory()}}/{{HERE}}/.gitignore
 
   cd {{invocation_directory()}}/{{HERE}} && \
   if ! test -f requirements.txt; then \
@@ -29,8 +29,8 @@ python HERE='.':
   
 # Add recipe to publish to GitHub pages. Requires activating them on github!
 gh-pages:
-  cat $CIT_BASE/resources/recipes/gh-pages.just >> {{invocation_directory()}}/Justfile
+  cat $CIT_HOME/resources/recipes/gh-pages.just >> {{invocation_directory()}}/Justfile
 
 # Add Docker recipes
 docker:
-  cat $CIT_BASE/resources/recipes/docker.just >> {{invocation_directory()}}/Justfile
+  cat $CIT_HOME/resources/recipes/docker.just >> {{invocation_directory()}}/Justfile

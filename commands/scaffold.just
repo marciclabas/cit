@@ -1,4 +1,4 @@
-TEMPLATES := "$CIT_BASE" + "/resources/templates"
+TEMPLATES := "$CIT_HOME" + "/resources/templates"
 
 help:
   @just --list
