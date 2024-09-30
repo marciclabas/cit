@@ -1,33 +1,63 @@
-# Citadel v2
-## Quickstart
+# Cit[adel]
 
-- Show all recipes
-  ```bash
-  cit
-  ```
-- Scaffold package/app templates
-  ```bash
-  cit scaffold python my-pkg "Description of My package"
-  cit scaffold react app-without-description
-  cit scaffold typescript my-ts-pkg
-  ```
-- Run stuff
-    ```bash
-    cit run tfserving-image
-    cit run whatever-really
-    ```
-- Open repositories (generally in vscode)
-  ```bash
-  cit open cit
-  cit open this-repo-I-work-very-often-in
-  ```
-- Add stuff to current project
-  ```bash
-  cit add images
-  cit add python # adds .vscode/config.json, virutal env, requirements.txt, Justfile with commands
-  ```
+> The developer productivity tool
 
-## Release Notes (new in v2)
-- Now based on Just modules
-- Custom bash completions for modules
-- Simplified templates
+## Features
+- Template scaffolding
+- Run scripts
+- Open repositories
+- Fully customizable
+
+## Commands
+
+**Scaffolding**
+
+```bash
+cit scaffold python my-pkg "Description of My package"
+cit scaffold react my-spa
+cit scaffold typescript my-ts-pkg
+cit scaffold next my-next-app
+# etc
+```
+
+**Running scripts**
+
+```bash
+cit run postgres
+cit kill postgres
+
+cit run redis
+cit kill redis
+
+cit run rabbitmq
+cit kill rabbitmq
+
+# etc
+```
+
+**Opening repos**
+
+```bash
+cit open cit
+cit open my-repo # customizable
+```
+
+**Adding stuff**
+
+```bash
+cit add python # adds .vscode/config.json, .venv, requirements.txt, Justfile (with some commands)
+cit add docker # adds Justfile with common commands
+```
+
+**Other commands**
+
+Fully customizable, using [`just`](https://github.com/casey/just)
+
+## Installation
+
+- Install [`just`](https://just.systems/man/en/packages.html)
+- Add source to `.bashrc` (or `.zshrc`, etc.):
+
+```bash
+source /path/to/cit/source.sh
+```
