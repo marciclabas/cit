@@ -1,6 +1,6 @@
 # Cit[adel]
 
-> The developer productivity tool
+> The developer productivity tool for unix
 
 ## Features
 - Template scaffolding
