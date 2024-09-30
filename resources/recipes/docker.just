@@ -1,4 +1,4 @@
-IMAGE := "moveread/image"
+IMAGE := "username/image"
 VERSION := "0.0.0"
 NAME := "container"
 

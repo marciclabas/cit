@@ -9,23 +9,25 @@ preview:
 
 build-preview: build preview
 
-install-ramda:
-  yarn add ramda --dev @types/ramda
+# PACKAGING
 
-# Create a new page
-add PAGE:
-  #!/bin/bash
-  mkdir src/pages/{{uppercamelcase(PAGE)}} || (echo "{{uppercamelcase(PAGE)}} already exists" && exit 0)
-  
-  LAST_IMPORT=$(grep -n '^import' src/App.tsx | tail -1 | cut -d : -f 1)
-  sed -i "$((LAST_IMPORT+1)) i import {{uppercamelcase(PAGE)}} from './pages/{{uppercamelcase(PAGE)}}'" src/App.tsx | head
+# Compile as package
+compile:
+  rm -dr build || :
+  yarn run compile
+  @just copy
 
-  PAGES=$(grep -n 'PLAYGROUND_PAGES' src/App.tsx | head -1 | cut -d : -f 1)
-  sed -i "$((PAGES+1)) i\  {{lowercase(PAGE)}}: <{{uppercamelcase(PAGE)}} />," src/App.tsx | head
+publish: compile upload
 
-  echo "export function {{uppercamelcase(PAGE)}}() {" > src/pages/{{uppercamelcase(PAGE)}}/{{uppercamelcase(PAGE)}}.tsx
-  echo -e "  return (\n    <></>\n  )\n}\nexport default {{uppercamelcase(PAGE)}}" >> src/pages/{{uppercamelcase(PAGE)}}/{{uppercamelcase(PAGE)}}.tsx
+# Build, increment patch number and publish
+republish: patch compile upload
 
-  echo "import {{uppercamelcase(PAGE)}} from './{{uppercamelcase(PAGE)}}.tsx'" > src/pages/{{uppercamelcase(PAGE)}}/index.ts
-  echo "export default {{uppercamelcase(PAGE)}}" >> src/pages/{{uppercamelcase(PAGE)}}/index.ts
+patch:
+  yarn version --patch
 
+# Publish to npm
+upload:
+  cd build && npm publish --access=public
+
+copy:
+  cp package.json build

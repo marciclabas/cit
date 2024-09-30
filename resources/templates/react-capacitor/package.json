@@ -1,5 +1,5 @@
 {
-  "name": "<NAME>",
+  "name": "react-capacitor",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,6 +14,8 @@
     "node": "^18.0.0 || >=20.0.0"
   },
   "dependencies": {
+    "@capacitor/android": "^6.1.1",
+    "@capacitor/core": "^6.1.1",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -23,6 +25,7 @@
     "react-router-dom": "^6.22.1"
   },
   "devDependencies": {
+    "@capacitor/cli": "^6.1.1",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
@@ -31,9 +34,9 @@
     "eslint": "8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "tsc-alias": "^1.8.10",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
-    "vite-tsconfig-paths": "^4.3.1",
-    "tsc-alias": "^1.8.10"
+    "vite-tsconfig-paths": "^4.3.1"
   }
 }

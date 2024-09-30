@@ -10,3 +10,7 @@ init:
   python3.11 -m venv {{VENV}}
   {{PYTHON}} -m pip install --upgrade pip
   {{PYTHON}} -m pip install -r requirements.txt
+
+example:
+  . $CIT_SCRIPTS/cases.sh
+  echo titlecase "hello-world"

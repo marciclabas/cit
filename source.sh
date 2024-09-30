@@ -1,8 +1,8 @@
-export CIT_BASE=$(dirname "${BASH_SOURCE[0]}")
-source $CIT_BASE/versions/v2/source.sh
+export CIT_HOME=$(dirname "${BASH_SOURCE[0]}")
 
-export BUMP="$CIT_BASE/resources/scripts/bump.sh"
-export FIND_LAN_IP="$CIT_BASE/resources/scripts/find_lan_ip.sh"
-export FIND_ANDROID_DEVICE="$CIT_BASE/resources/scripts/find_android_device.sh"
-export FIND_GIT_ROOT="$CIT_BASE/resources/scripts/find_git_root.sh"
-alias ADB="powershell.exe adb"
+export JUST_UNSTABLE="true"
+alias cit="just --justfile $CIT_HOME/commands/Justfile"
+
+export CIT_SCRIPTS="$CIT_HOME/resources/scripts"
+
+source resources/completions.sh

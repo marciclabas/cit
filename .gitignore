@@ -6,3 +6,4 @@ __pycache__
 *.py[cod]
 requirements.txt
 dev.ipynb
+notes.txt

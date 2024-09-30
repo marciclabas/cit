@@ -1,1 +1,0 @@
-timeout 1s degit $@ || (rm -dr ${!#}; degit $@)

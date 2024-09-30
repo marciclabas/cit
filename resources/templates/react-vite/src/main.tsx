@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import App from './App.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { ChakraProvider, ColorModeScript, ThemeConfig, extendTheme } from '@chakra-ui/react'
 import './index.css'
