@@ -5,4 +5,4 @@ alias cit="just --justfile $CIT_HOME/commands/cit.just"
 
 export CIT_SCRIPTS="$CIT_HOME/resources/scripts"
 
-source resources/completions.sh
+source $CIT_HOME/resources/completions.sh
