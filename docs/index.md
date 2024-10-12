@@ -1,4 +1,4 @@
-# Cit[adel]
+# Welcome to Cit's docs!
 
 `cit` is a centralized script runner for Unix. It's main features are:
 
@@ -8,4 +8,4 @@
 
 And much else: it's easily extensible and customizable.
 
-[**Read the docs!**](https://marciclabas.github.io/cit/)
+Let's [`cit install`](installation.md) it!

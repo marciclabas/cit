@@ -1,0 +1,18 @@
+site_name: Cit[adel]
+repo_name: cit
+repo_url: https://github.com/marciclabas/cit
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Commands: commands.md
+  - Customization: customization.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
