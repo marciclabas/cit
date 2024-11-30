@@ -49,3 +49,11 @@ capacitor NAME='app' DESCRIPTION='app_description':
   sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g' index.html && \
   yarn
   echo "Run 'just init' to create the android project!"
+
+
+node NAME DESCRIPTION='package_description':
+  cp -r {{TEMPLATES}}/ts-node {{invocation_directory()}}/{{NAME}}
+  $CIT_SCRIPTS/replace.sh {{invocation_directory()}}/{{NAME}} '<DESCRIPTION>' '{{DESCRIPTION}}'
+  cd {{invocation_directory()}}/{{NAME}} && \
+  sed -i 's/<NAME>/{{file_name(NAME)}}/g' package.json && \
+  yarn
