@@ -56,4 +56,5 @@ node NAME DESCRIPTION='package_description':
   $CIT_SCRIPTS/replace.sh {{invocation_directory()}}/{{NAME}} '<DESCRIPTION>' '{{DESCRIPTION}}'
   cd {{invocation_directory()}}/{{NAME}} && \
   sed -i 's/<NAME>/{{file_name(NAME)}}/g' package.json && \
+  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g' README.md && \
   yarn
