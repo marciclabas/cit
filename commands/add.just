@@ -12,7 +12,6 @@ python HERE='.':
 
   cp -a $CIT_HOME/resources/python/settings/. {{invocation_directory()}}/{{HERE}}/.vscode
   echo "" >> {{invocation_directory()}}/{{HERE}}/Justfile
-  cat $CIT_HOME/resources/python/Justfile >> {{invocation_directory()}}/{{HERE}}/Justfile
   cat $CIT_HOME/resources/python/.gitignore >> {{invocation_directory()}}/{{HERE}}/.gitignore
 
   cd {{invocation_directory()}}/{{HERE}} && \
@@ -20,7 +19,6 @@ python HERE='.':
     echo "build" >> requirements.txt && \
     echo "twine" >> requirements.txt && \
     echo "ipykernel" >> requirements.txt && \
-    echo "verify-import" >> requirements.txt && \
     echo "pyright" >> requirements.txt && \
     python3.11 -m venv .venv && \
     .venv/bin/python -m pip install --upgrade pip && \

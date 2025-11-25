@@ -6,8 +6,5 @@ help:
 # Open cit
 cit:
   @ echo Opening $CIT_HOME
-  code $CIT_HOME
+  cursor $CIT_HOME
 
-# Customize with your own path
-custom-repo:
-  code /path/to/repo

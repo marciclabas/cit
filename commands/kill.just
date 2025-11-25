@@ -1,5 +1,5 @@
 help:
-  @just --list
+  just -f kill.just --list
 
 # Kill the postgres container
 postgres:
@@ -12,3 +12,10 @@ rabbitmq:
 # Kill the redis container
 redis:
   docker rm -f redis
+
+# Kill the cloudflared tunnel
+tunnel:
+  pkill -f cloudflared
+
+ocr:
+  docker rm -f ocr

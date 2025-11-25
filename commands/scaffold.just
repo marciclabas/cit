@@ -9,7 +9,6 @@ python NAME DESCRIPTION='package_description':
   $CIT_SCRIPTS/replace.sh {{invocation_directory()}}/{{NAME}} '<DESCRIPTION>' '{{DESCRIPTION}}'
   cd {{invocation_directory()}}/{{NAME}} && \
   sed -i 's/<NAME>/{{file_name(NAME)}}/g' {{invocation_directory()}}/{{NAME}}/pyproject.toml && \
-  sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g' {{invocation_directory()}}/{{NAME}}/README.md && \
   sed -i 's/<NAME>/{{titlecase(file_name(NAME))}}/g' {{invocation_directory()}}/{{NAME}}/src/NAME/__init__.py && \
   mv src/NAME  src/{{snakecase(file_name(NAME))}}
 

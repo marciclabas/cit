@@ -14,3 +14,15 @@ rabbitmq:
 # Run Redis in docker
 redis:
   docker run -d --name redis -p 6379:6379 redis/redis-stack-server:latest
+
+# Run the cloudflared tunnel
+tunnel:
+  echo "Starting cloudflared tunnel..."
+  cloudflared tunnel run mr-tunnel > /tmp/tunnel.logs 2>&1 &
+
+tunnel-logs:
+  cat /tmp/tunnel.logs
+
+# Run the OCR model tfserving on localhost:8501
+ocr:
+  docker run -d -p 8501:8501 --name ocr moveread/tfx-ocr:latest

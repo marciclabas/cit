@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "<NAME>"
 version = "0.1.0"
 authors = [
-  {name="Marcel Claramunt", email="marcel@moveread.com"}
+  {name="Marcel Claramunt", email="marcel@tribulnation.com"}
 ]
 description = "<DESCRIPTION>"
 dependencies = [
@@ -16,7 +16,7 @@ requires-python = ">=3.10"
 readme = {file="README.md", content-type="text/markdown"}
 
 [project.urls]
-repo = "https://github.com/moveread/REPO.git"
+repo = "https://github.com/tribulnation/REPO.git"
 
 # [project.optional-dependencies]
 # test = [
