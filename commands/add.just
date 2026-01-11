@@ -8,9 +8,8 @@ python HERE='.':
   cd {{invocation_directory()}}/{{HERE}}/.vscode && \
     [ ! -f settings.json ] && echo "{}" > settings.json || : && \
     jq '. + {"python.defaultInterpreterPath": ".venv/bin/python"}' settings.json > temp.json && mv temp.json settings.json && \
-    jq '. + {"python.analysis.typeCheckingMode": "standard"}' settings.json > temp.json && mv temp.json settings.json
+    jq '. + {"cursorpyright.analysis.typeCheckingMode": "standard"}' settings.json > temp.json && mv temp.json settings.json
 
-  cp -a $CIT_HOME/resources/python/settings/. {{invocation_directory()}}/{{HERE}}/.vscode
   echo "" >> {{invocation_directory()}}/{{HERE}}/Justfile
   cat $CIT_HOME/resources/python/.gitignore >> {{invocation_directory()}}/{{HERE}}/.gitignore
 
