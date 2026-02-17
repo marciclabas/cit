@@ -1,4 +1,5 @@
 import asyncio
+import ast
 import io
 import os
 import subprocess
@@ -39,7 +40,6 @@ def new_session():
 		"__builtins__": __builtins__,
 		"environ": os.environ,
 	}
-	exec("import os; os.environ = environ", global_namespace)
 	return global_namespace
 
 class PythonREPLServer:
@@ -62,7 +62,7 @@ class PythonREPLServer:
     return [
       types.Tool(
         name="execute_python",
-        description="Execute Python code and return the output. Variables persist between executions.",
+        description="Execute Python code and return the output. Variables persist between executions. Supports top-level await.",
         inputSchema={
           "type": "object",
           "properties": {
@@ -139,9 +139,18 @@ class PythonREPLServer:
       stderr = io.StringIO()
       
       try:
-        # Execute code with output redirection
+        # Execute code with output redirection, supporting top-level await
         with redirect_stdout(stdout), redirect_stderr(stderr):
-          exec(code, self.global_namespace)
+          compiled = compile(
+            code,
+            "<repl>",
+            "exec",
+            flags=ast.PyCF_ALLOW_TOP_LEVEL_AWAIT,
+            dont_inherit=True,
+          )
+          exec_result = eval(compiled, self.global_namespace)
+          if asyncio.iscoroutine(exec_result):
+            await exec_result
         
         # Combine output
         output = stdout.getvalue()
@@ -156,8 +165,20 @@ class PythonREPLServer:
         if not output and not errors:
           # Try to get the value of the last expression
           try:
-            last_line = code.strip().split('\n')[-1]
-            last_value = eval(last_line, self.global_namespace)
+            last_line = code.strip().split("\n")[-1]
+            try:
+              last_value = eval(last_line, self.global_namespace)
+            except SyntaxError:
+              compiled_last = compile(
+                last_line,
+                "<repl>",
+                "eval",
+                flags=ast.PyCF_ALLOW_TOP_LEVEL_AWAIT,
+                dont_inherit=True,
+              )
+              last_value = eval(compiled_last, self.global_namespace)
+            if asyncio.iscoroutine(last_value):
+              last_value = await last_value
             result = f"Result: {repr(last_value)}"
           except (SyntaxError, ValueError, NameError):
             result = "Code executed successfully (no output)"
