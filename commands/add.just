@@ -8,17 +8,23 @@ python HERE='.':
   cd {{invocation_directory()}}/{{HERE}}/.vscode && \
     [ ! -f settings.json ] && echo "{}" > settings.json || : && \
     jq '. + {"python.defaultInterpreterPath": ".venv/bin/python"}' settings.json > temp.json && mv temp.json settings.json && \
+    jq '. + {"python.analysis.typeCheckingMode": "standard"}' settings.json > temp.json && mv temp.json settings.json && \
     jq '. + {"cursorpyright.analysis.typeCheckingMode": "standard"}' settings.json > temp.json && mv temp.json settings.json
 
-  echo "" >> {{invocation_directory()}}/{{HERE}}/Justfile
   cat $CIT_HOME/resources/python/.gitignore >> {{invocation_directory()}}/{{HERE}}/.gitignore
 
+  if [ ! -e "{{invocation_directory()}}/{{HERE}}/.cursor" ]; then \
+    cp -r $CIT_HOME/resources/python/.cursor "{{invocation_directory()}}/{{HERE}}/.cursor"; \
+  fi
+
   cd {{invocation_directory()}}/{{HERE}} && \
-  if ! test -f requirements.txt; then \
+  if [ ! -f requirements.txt ]; then \
     echo "build" >> requirements.txt && \
     echo "twine" >> requirements.txt && \
     echo "ipykernel" >> requirements.txt && \
     echo "pyright" >> requirements.txt && \
+    echo "mcp" >> requirements.txt && \
+    echo "python-dotenv" >> requirements.txt && \
     python3.11 -m venv .venv && \
     .venv/bin/python -m pip install --upgrade pip && \
     .venv/bin/python -m pip install -r requirements.txt; \
