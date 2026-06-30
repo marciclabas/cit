@@ -13,17 +13,12 @@ python HERE='.':
 
   cat $CIT_HOME/resources/python/.gitignore >> {{invocation_directory()}}/{{HERE}}/.gitignore
 
-  if [ ! -e "{{invocation_directory()}}/{{HERE}}/.cursor" ]; then \
-    cp -r $CIT_HOME/resources/python/.cursor "{{invocation_directory()}}/{{HERE}}/.cursor"; \
-  fi
-
   cd {{invocation_directory()}}/{{HERE}} && \
   if [ ! -f requirements.txt ]; then \
     echo "build" >> requirements.txt && \
     echo "twine" >> requirements.txt && \
     echo "ipykernel" >> requirements.txt && \
     echo "pyright" >> requirements.txt && \
-    echo "mcp" >> requirements.txt && \
     echo "python-dotenv" >> requirements.txt && \
     python3.11 -m venv .venv && \
     .venv/bin/python -m pip install --upgrade pip && \

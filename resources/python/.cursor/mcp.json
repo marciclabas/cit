@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "python-repl": {
-      "command": ".venv/bin/python .cursor/repl.py",
-      "type": "stdio"
-    }
-  }
-}

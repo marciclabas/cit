@@ -6,5 +6,5 @@ help:
 # Open cit
 cit:
   @ echo Opening $CIT_HOME
-  cursor $CIT_HOME
+  code $CIT_HOME
 
