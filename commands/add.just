@@ -20,9 +20,9 @@ python HERE='.':
     echo "ipykernel" >> requirements.txt && \
     echo "pyright" >> requirements.txt && \
     echo "python-dotenv" >> requirements.txt && \
-    python3.11 -m venv .venv && \
-    .venv/bin/python -m pip install --upgrade pip && \
-    .venv/bin/python -m pip install -r requirements.txt; \
+    uv venv --python=3.11 && \
+    uv pip install --upgrade pip && \
+    uv pip install -r requirements.txt; \
   fi 
   
 # Add recipe to publish to GitHub pages. Requires activating them on github!
